@@ -4,18 +4,19 @@ RxSwiftを段階的に学ぶためのチュートリアルシリーズです。�
 
 ## 📚 チュートリアル一覧
 
-| 回 | タイトル | 難易度 | 学ぶ内容 | 記事 | コード |
+| No | タイトル | 難易度 | 学ぶ内容 | 記事 | コード |
 |----|---------|-------|---------|------|--------|
-| 第1回 | 基礎知識編 | ⭐ | Observable, Subject, Disposable | [📝 記事](記事URL) | [📦 Playground](./01-Basics) |
-| 第2回 | カウンターアプリ | ⭐ | **MVVM**, RxCocoa, テスト | [📝 記事](記事URL) | [📦 コード](./02-CounterApp) |
-| 第3回 | ToDoリストアプリ | ⭐⭐ | **MVVM**, 配列操作, UITableView | [📝 記事](記事URL) | [📦 コード](./03-TodoListApp) |
-| 第4回 | リアルタイム検索アプリ | ⭐⭐⭐ | **MVVM**, API通信, Scheduler, Hot/Cold | [📝 記事](記事URL) | [📦 コード](./04-SearchApp) |
+| 1 | 基礎知識編 | ⭐ | Observable, Subject, Disposable | [📝](記事URL) | [📂](./01-Basics) |
+| 2 | ジェネリクス&エクステンション編 | ⭐ | Observable<T>, Reactive Extension | [📝](記事URL) | [📂](./02-Generics-Extensions) |
+| 3 | カウンターアプリ | ⭐ | **MVVM**, RxCocoa, テスト | [📝](記事URL) | [📂](./03-CounterApp) |
+| 4 | ToDoリストアプリ | ⭐⭐ | **MVVM**, 配列操作, UITableView | [📝](記事URL) | [📂 ](./04-TodoListApp) |
+| 5 | リアルタイム検索アプリ | ⭐⭐⭐ | **MVVM**, API通信, Scheduler, Hot/Cold | [📝](記事URL) | [📂](./05-SearchApp) |
 
 ## 🚀 クイックスタート
 
 ### リポジトリをクローン
 ```bash
-cd [クローンしたいディレクトリ]
+cd [クローンするプロジェクトを配置するディレクトリ]
 git clone https://github.com/YourName/rxswift-tutorials.git
 cd rxswift-tutorials
 ```
@@ -28,9 +29,17 @@ open RxSwift-Basics.playground
 
 詳しくは [01-Basics/README.md](./01-Basics/README.md) を参照してください。
 
-### 第2回以降：アプリを作る
+### 第2回：ジェネリクスとエクステンションを学ぶ
 ```bash
-cd 02-CounterApp/CounterApp
+cd 02-Generics-Extensions
+open Generics-Extensions.playground
+```
+
+詳しくは [02-Generics-Extensions/README.md](./02-Generics-Extensions/README.md) を参照してください。
+
+### 第3回以降：アプリを作る
+```bash
+cd 03-CounterApp/CounterApp
 open CounterApp.xcodeproj
 ```
 
@@ -55,7 +64,7 @@ open CounterApp.xcodeproj
 
 > 💡 **MVVMが初めての方へ**
 > 
-> 第2回のカウンターアプリでMVVMの基本を丁寧に解説します。
+> 第3回のカウンターアプリでMVVMの基本を丁寧に解説します。
 > まずは小さなアプリでMVVMの構造を理解してから、徐々に複雑なアプリに進みましょう。
 
 ## 📋 前提知識
@@ -101,15 +110,17 @@ open CounterApp.xcodeproj
 - RxSwiftとの相性が良い
 - 保守性・拡張性が高い
 
-### 基礎編（第1-2回）
+### 基礎編（第1-3回）
 - RxSwiftの基本概念（Observable, Subject, Disposable）
+- **Observable<T>のジェネリクス**
+- **Reactiveエクステンション（rx名前空間）**
 - RxCocoaを使ったUIバインディング
 - **MVVMアーキテクチャの基礎**
 - Input/Outputパターン
 - XCTestでの単体テスト（ViewModelのテスト）
 - Xibを使ったレイアウト
 
-### 実践編（第3-4回）
+### 実践編（第4-5回）
 - **MVVMでの配列データ管理**
 - UITableViewとRxSwiftの連携
 - Operatorを使ったデータ加工
@@ -126,7 +137,11 @@ rxswift-tutorials/
 │   ├── RxSwift-Basics.playground      # Playgroundファイル
 │   └── README.md                       # セットアップ手順
 │
-├── 02-CounterApp/
+├── 02-Generics-Extensions/
+│   ├── Generics-Extensions.playground  # Playgroundファイル
+│   └── README.md                       # セットアップ手順
+│
+├── 03-CounterApp/
 │   ├── CounterApp/                     # Xcodeプロジェクト
 │   │   ├── ViewModels/                # ⭐ ViewModel層
 │   │   │   └── CounterViewModel.swift
@@ -137,7 +152,7 @@ rxswift-tutorials/
 │   │       └── CounterViewModelTests.swift
 │   └── README.md
 │
-├── 03-TodoListApp/
+├── 04-TodoListApp/
 │   ├── TodoListApp/                    # Xcodeプロジェクト
 │   │   ├── Models/                    # ⭐ Model層
 │   │   │   └── Todo.swift
@@ -150,7 +165,7 @@ rxswift-tutorials/
 │   │       └── TodoListViewModelTests.swift
 │   └── README.md
 │
-├── 04-SearchApp/
+├── 05-SearchApp/
 │   ├── SearchApp/                      # Xcodeプロジェクト
 │   │   ├── Models/                    # ⭐ Model層
 │   │   │   └── SearchResult.swift
@@ -251,9 +266,30 @@ class CounterViewModel {
 
 | 回 | MVVMの複雑さ | 学ぶポイント |
 |----|------------|------------|
-| 第2回 | ⭐ シンプル | MVVMの基本、Input/Output |
-| 第3回 | ⭐⭐ 中級 | 配列データの管理、UITableView連携 |
-| 第4回 | ⭐⭐⭐ 高度 | API通信、非同期処理、依存性注入 |
+| 第3回 | ⭐ シンプル | MVVMの基本、Input/Output |
+| 第4回 | ⭐⭐ 中級 | 配列データの管理、UITableView連携 |
+| 第5回 | ⭐⭐⭐ 高度 | API通信、非同期処理、依存性注入 |
+
+## 🎓 学習の流れ
+
+```
+第1回: RxSwiftの基本概念
+   ↓ Observable, Subject, Disposableを理解
+   
+第2回: ジェネリクスとエクステンション
+   ↓ Observable<T>やrx名前空間の仕組みを理解
+   
+第3回: カウンターアプリ
+   ↓ MVVMの基本とInput/Outputパターンを理解
+   
+第4回: ToDoリストアプリ
+   ↓ 配列データの管理とUITableView連携を理解
+   
+第5回: リアルタイム検索アプリ
+   ↓ API通信とSchedulerを理解
+```
+
+**第1-2回でRxSwiftの理論を固めてから、第3回以降でMVVMアプリを実装します。**
 
 ## 🤝 コントリビューション
 
@@ -271,15 +307,15 @@ MIT License
 
 ## ✍️ 著者
 
-[@YourName](https://zenn.dev/yourname)
+[@ryuzo.hiruma](https://zenn.dev/hiruma)
 
 ## 🔗 関連リンク
 
-- [Zenn記事一覧](https://zenn.dev/yourname)
+- [Zenn記事一覧](https://zenn.dev/hiruma)
 - [RxSwift公式ドキュメント](http://reactivex.io/)
 - [RxSwift GitHub](https://github.com/ReactiveX/RxSwift)
 - [RxMarbles](https://rxmarbles.com/) - Operatorの視覚化
 
 ---
 
-⭐ このリポジトリが役に立ったら、Starをお願いします！
+⭐ このリポジトリが役に立ったら、Starをお願いします!

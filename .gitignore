@@ -1,0 +1,207 @@
+# ===================================
+# iOS/Swift プロジェクト用 .gitignore
+# ===================================
+
+# ===================================
+# Xcode
+# ===================================
+# ビルド成果物
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Xcodeプロジェクトの個人設定
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+
+# ユーザー固有のXcode設定
+*.xcuserstate
+*.xcscmblueprint
+IDEWorkspaceChecks.plist
+
+# Xcode Workspace（SPM使用時は除外したいファイル）
+*.xcworkspace
+!default.xcworkspace
+!*.xcworkspace/contents.xcworkspacedata
+!*.xcworkspace/xcshareddata/
+
+# Xcodeプロジェクト（必要な部分は除外しない）
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcodeproj/project.xcworkspace/xcshareddata/
+
+# ===================================
+# Swift Package Manager (SPM)
+# ===================================
+.swiftpm/
+.build/
+Packages/
+Package.resolved
+*.xcodeproj
+xcuserdata/
+
+# ===================================
+# CocoaPods
+# ===================================
+Pods/
+*.podfile.lock
+Podfile.lock
+
+# ===================================
+# Carthage
+# ===================================
+Carthage/Build/
+Carthage/Checkouts/
+
+# ===================================
+# Playground
+# ===================================
+*.playground/timeline.xctimeline
+*.playground/xcuserdata/
+!*.playground/contents.xcplayground
+!*.playground/Sources/
+!*.playground/Resources/
+
+# ===================================
+# fastlane
+# ===================================
+# fastlane実行結果
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+fastlane/readme.md
+
+# 証明書やプロビジョニングプロファイル（必要に応じて）
+# *.mobileprovision
+# *.cer
+# *.p12
+
+# ===================================
+# macOS
+# ===================================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS システムファイル
+._*
+
+# Spotlight
+.Spotlight-V100
+.Trashes
+
+# Volumes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.apdisk
+
+# ===================================
+# AppCode
+# ===================================
+.idea/
+*.iml
+
+# ===================================
+# Visual Studio Code
+# ===================================
+.vscode/
+*.code-workspace
+
+# ===================================
+# SwiftLint
+# ===================================
+.swiftlint.yml
+
+# ===================================
+# テストカバレッジ
+# ===================================
+*.gcno
+*.gcda
+*.profdata
+*.coverage
+
+# ===================================
+# その他
+# ===================================
+# ログファイル
+*.log
+
+# 一時ファイル
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# バックアップファイル
+*.backup
+*.bak
+
+# 環境変数ファイル（APIキーなどを含む場合）
+.env
+.env.local
+.env.development
+.env.production
+
+# Firebase設定ファイル（必要に応じて）
+# GoogleService-Info.plist
+
+# AWS設定ファイル
+# awsconfiguration.json
+
+# ===================================
+# プロジェクト固有の除外ファイル
+# ===================================
+# プロジェクトによって追加してください
+
+# 例: 開発用の設定ファイル
+# Config/Development.plist
+
+# 例: 生成されたコード
+# Generated/
+
+# ===================================
+# 補足説明
+# ===================================
+# 
+# このファイルは以下をカバーしています:
+# - Xcode の個人設定とビルド成果物
+# - Swift Package Manager (SPM)
+# - CocoaPods
+# - Carthage
+# - Playground
+# - fastlane
+# - macOS システムファイル
+# - エディタ設定（AppCode, VSCode）
+# - 環境変数ファイル
+#
+# 使い方:
+# 1. このファイルをプロジェクトのルートに配置
+# 2. プロジェクト固有の除外ルールを末尾に追加
+# 3. git add .gitignore
+# 4. git commit -m "Add .gitignore"
+#
+# 既存プロジェクトに追加する場合:
+# git rm -r --cached .
+# git add .
+# git commit -m "Apply .gitignore"
