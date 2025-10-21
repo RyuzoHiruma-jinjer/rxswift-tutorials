@@ -15,6 +15,7 @@ RxSwiftを段階的に学ぶためのチュートリアルシリーズです。�
 
 ### リポジトリをクローン
 ```bash
+cd [クローンしたいディレクトリ]
 git clone https://github.com/YourName/rxswift-tutorials.git
 cd rxswift-tutorials
 ```
