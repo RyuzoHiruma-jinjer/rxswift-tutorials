@@ -125,9 +125,19 @@ open CounterApp.xcodeproj
 - UITableViewとRxSwiftの連携
 - Operatorを使ったデータ加工
 - **MVVMでのAPI通信実装**
+- **Single/Completable/Maybeなどの特殊なObservable**（APIコールやDB操作で使用）
 - Schedulerによるスレッド制御
 - Hot/Cold Observableの実践的な理解
 - より複雑なViewModelのテスト
+
+> 💡 **Single/Completable/Maybeについて**
+> 
+> これらは通常のObservableを特定のユースケースに特化させた型です：
+> - **Single**: 1つの値またはエラーのみを返す（APIコール、DB取得など）
+> - **Completable**: 完了またはエラーのみを通知（保存処理など）
+> - **Maybe**: 0個または1個の値、またはエラーを返す（オプショナルなデータ取得）
+> 
+> 第5回の実践編で、API通信を実装しながら学びます。
 
 ## 🗂 リポジトリ構成
 ```
@@ -286,10 +296,14 @@ class CounterViewModel {
    ↓ 配列データの管理とUITableView連携を理解
    
 第5回: リアルタイム検索アプリ
-   ↓ API通信とSchedulerを理解
+   ↓ API通信とScheduler、Single（APIコールで使う特殊なObservable）を理解
 ```
 
 **第1-2回でRxSwiftの理論を固めてから、第3回以降でMVVMアプリを実装します。**
+
+> 💡 **なぜ第5回でSingleを学ぶのか？**
+> 
+> Single/Completable/MaybeはAPIコールやDB操作など、**実際のユースケース**で使われる特殊なObservableです。基礎を固めてから実践で学ぶことで、より深く理解できます。
 
 ## 🤝 コントリビューション
 
