@@ -6,7 +6,7 @@ RxSwiftを段階的に学ぶためのチュートリアルシリーズです。�
 
 | No | タイトル | 難易度 | 学ぶ内容 | 記事 | コード |
 |----|---------|-------|---------|------|--------|
-| 1 | 基礎知識編 | ⭐ | Observable, Subject, Disposable | [📝](記事URL) | [📂](./01-Basics) |
+| 1 | 基礎知識編 | ⭐ | Observable, Subject, Disposable | [📝](https://zenn.dev/jinjer_techblog/articles/61ce0010c646b3#rxswift%E3%81%A8%E3%81%AF) | [📂](./01-Basics) |
 | 2 | ジェネリクス&エクステンション編 | ⭐ | Observable<T>, Reactive Extension | [📝](記事URL) | [📂](./02-Generics-Extensions) |
 | 3 | カウンターアプリ | ⭐ | **MVVM**, RxCocoa, テスト | [📝](記事URL) | [📂](./03-CounterApp) |
 | 4 | ToDoリストアプリ | ⭐⭐ | **MVVM**, 配列操作, UITableView | [📝](記事URL) | [📂 ](./04-TodoListApp) |
