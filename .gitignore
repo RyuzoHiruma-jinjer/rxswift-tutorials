@@ -51,7 +51,8 @@ IDEWorkspaceChecks.plist
 .build/
 Packages/
 Package.resolved
-*.xcodeproj
+# *.xcodeproj は上の Xcode セクション（41-45行目）で
+# project.pbxproj と xcshareddata のみ追跡する設定済み
 xcuserdata/
 
 # ===================================
