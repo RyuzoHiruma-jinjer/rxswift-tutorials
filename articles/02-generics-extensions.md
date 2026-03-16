@@ -117,13 +117,17 @@ numbers.subscribe(onNext: { value in
 // 2倍: 6
 ```
 
-もし型が混在していたら、このような安全な計算はできません：
+もし型安全でない言語（例：JavaScript）だったら、このような安全な計算はできません：
 
-```swift
-// もし型安全でなかったら...
-let mixed = [1, "Hello", 3]  // Int と String が混在
-// value * 2 はエラーになる可能性がある
+```javascript
+// JavaScriptでは型が混在できてしまう
+const mixed = [1, "Hello", 3]  // Number と String が混在
+mixed.forEach(value => {
+    console.log(value * 2)  // "Hello" * 2 → NaN（実行時エラー）
+})
 ```
+
+Swiftでは、このような型の混在は **コンパイル時にエラー** になるため、実行前に問題を防げます。
 
 ### コンパイル時に型エラーを検出
 
@@ -627,7 +631,7 @@ textField.rx.text  // Observable<String?>
     })
 ```
 
-### パターン3: Binderを使った双方向バインディング
+### パターン3: Binderを使った単方向バインディング
 
 Observableの値をUIに反映する：
 
