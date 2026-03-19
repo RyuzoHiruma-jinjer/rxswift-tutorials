@@ -35,9 +35,15 @@ published: false
 この記事は **第1回「基礎知識編」** を読んだ前提で進めます。
 以下の概念を理解していることが前提です：
 
-- Observable - 時間とともに流れるイベント
-- Subject/Relay - 値を手動で流せるObservable
-- Disposable/DisposeBag - メモリ管理
+| 用語 | 日本語訳 | RxSwiftでの概念 |
+|------|---------|----------------|
+| Observable | 観察可能な | イベントを発行するストリームを表現する型。時間とともに値を発行できる |
+| subscribe | 購読する | Observableが発行するイベントを受け取るための操作。イベントストリームの終点として機能する |
+| Subject | 主体 | ObservableとObserverの両方の性質を持つ型。値を手動で流せるObservable |
+| Relay | 中継器 | エラー・完了イベントを流さない安全なSubject。UIバインディングに最適 |
+| Disposable | 破棄可能な | 購読のライフサイクルを管理するオブジェクト |
+| DisposeBag | 破棄袋 | 複数のDisposableをまとめて管理し、解放時に一括で購読を解除する |
+| weak self | 弱参照 | クロージャ内でのメモリリーク防止のための参照方法 |
 
 まだ読んでいない方は、[第1回の記事](https://zenn.dev/jinjer_techblog/articles/61ce0010c646b3)から始めることをおすすめします。
 
@@ -117,17 +123,18 @@ numbers.subscribe(onNext: { value in
 // 2倍: 6
 ```
 
-もし型安全でない言語（例：JavaScript）だったら、このような安全な計算はできません：
+もし型の情報が失われると、このような安全な計算はできません：
 
-```javascript
-// JavaScriptでは型が混在できてしまう
-const mixed = [1, "Hello", 3]  // Number と String が混在
-mixed.forEach(value => {
-    console.log(value * 2)  // "Hello" * 2 → NaN（実行時エラー）
-})
+```swift
+// Any型を使うと型安全性が失われる
+let mixed: [Any] = [1, "Hello", 3]  // Int と String が混在
+
+mixed.forEach { value in
+    // value は Any型 → コンパイラが型を判断できない
+    // let doubled = value * 2            // ❌ コンパイルエラー（Anyに * は使えない）
+    // let doubled = (value as! Int) * 2  // ⚠️ "Hello"で実行時クラッシュ
+}
 ```
-
-Swiftでは、このような型の混在は **コンパイル時にエラー** になるため、実行前に問題を防げます。
 
 ### コンパイル時に型エラーを検出
 
